@@ -1,9 +1,9 @@
 import express from "express";
 const router = express.Router();
 
-router.post("/add", (req, res) => {
+router.get("/add", (req, res) => {
   try {
-    const { num1, num2 } = req.body;
+    const { num1, num2 } = req.query;
     let result = parseInt(num1) + parseInt(num2);
     res.status(200).json(result);
   } catch (error) {
@@ -11,9 +11,9 @@ router.post("/add", (req, res) => {
   }
 });
 
-router.post("/sub", (req, res) => {
+router.get("/sub", (req, res) => {
   try {
-    const { num1, num2 } = req.body;
+    const { num1, num2 } = req.query;
     let result = parseInt(num1) - parseInt(num2);
     res.status(200).json(result);
   } catch (error) {
@@ -21,9 +21,9 @@ router.post("/sub", (req, res) => {
   }
 });
 
-router.post("/multiply", (req, res) => {
+router.get("/multiply", (req, res) => {
   try {
-    const { num1, num2 } = req.body;
+    const { num1, num2 } = req.query;
     let result = parseInt(num1) * parseInt(num2);
     res.status(200).json(result);
   } catch (error) {
@@ -31,9 +31,9 @@ router.post("/multiply", (req, res) => {
   }
 });
 
-router.post("/div", (req, res) => {
+router.get("/div", (req, res) => {
   try {
-    const { num1, num2 } = req.body;
+    const { num1, num2 } = req.query;
     let result = parseInt(num1) / parseInt(num2);
     res.status(200).json(result);
   } catch (error) {
