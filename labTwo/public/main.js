@@ -35,16 +35,9 @@ resultBtn.addEventListener("click", async () => {
   let operation = document.getElementById("operations").value;
   switch (operation) {
     case "+":
-      answer = await fetch("http://localhost:3000/api/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Specify the content type if sending JSON data
-        },
-        body: JSON.stringify({
-          num1: numberInput1,
-          num2: numberInput2,
-        }),
-      });
+      answer = await fetch(
+        `http://localhost:3000/api/add?num1=${numberInput1}&num2=${numberInput2}`
+      );
       amount = await answer.json();
 
       if (!isNaN(amount)) {
@@ -53,18 +46,10 @@ resultBtn.addEventListener("click", async () => {
       break;
 
     case "-":
-      answer = await fetch("http://localhost:3000/api/sub", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Specify the content type if sending JSON data
-        },
-        body: JSON.stringify({
-          num1: numberInput1,
-          num2: numberInput2,
-        }),
-      });
+      answer = await fetch(
+        `http://localhost:3000/api/sub?num1=${numberInput1}&num2=${numberInput2}`
+      );
       amount = await answer.json();
-      console.log(answer);
 
       if (!isNaN(amount)) {
         result.value = amount;
@@ -72,18 +57,10 @@ resultBtn.addEventListener("click", async () => {
       break;
 
     case "*":
-      answer = await fetch("http://localhost:3000/api/multiply", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Specify the content type if sending JSON data
-        },
-        body: JSON.stringify({
-          num1: numberInput1,
-          num2: numberInput2,
-        }),
-      });
+      answer = await fetch(
+        `http://localhost:3000/api/multiply?num1=${numberInput1}&num2=${numberInput2}`
+      );
       amount = await answer.json();
-      console.log(answer);
 
       if (!isNaN(amount)) {
         result.value = amount;
@@ -91,18 +68,11 @@ resultBtn.addEventListener("click", async () => {
       break;
 
     case "/":
-      answer = await fetch("http://localhost:3000/api/div", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Specify the content type if sending JSON data
-        },
-        body: JSON.stringify({
-          num1: numberInput1,
-          num2: numberInput2,
-        }),
-      });
+      answer = await fetch(
+        `http://localhost:3000/api/div?num1=${numberInput1}&num2=${numberInput2}`
+      );
+
       amount = await answer.json();
-      console.log(answer);
 
       if (!isNaN(amount)) {
         result.value = amount;
