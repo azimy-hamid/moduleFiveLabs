@@ -1,7 +1,10 @@
 import express from "express";
+import cors from "cors";
 import operations from "./controllers/operations.js";
+
 const PORT = 3000;
 const app = express();
+app.use(cors()); // I have used this cause I was getting an error while trying to access my api from the frontend.
 
 app.use(express.static("public"));
 app.use(express.json());
