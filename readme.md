@@ -36,7 +36,7 @@ To run the backend server:
 
 To run the frontend:
 
-4. open the index.html from the public folder manually or go live using live-server
+4. open the index.html from the public folder manually or go live using live-server or after running the server you can go onto this endpoint (http://localhost:3000/)
 
 NOTE: For the frontend to have all functionalities, the backend server must be running
 
@@ -61,6 +61,17 @@ To run:
 The requirement for this lab is to change lab 4 api to use controller, but this was already a requirement of the lab 4. So this lab is also completed allong side lab 5
 
 ## LabSix
+
+All the requirements for the lab 6 is completed, I have written 4 test cases that test the 4 (add - sub - multiply - div) endpoints. However in the lab instrcutions (the module 5 slides), they have used commonJs, but I have used ES6 cause I wanted to also practice the ES6 sytax as I had only worked with CommonJs previously so it was quite a good experience.
+Also, Since I was using ES6 and the supertest library noramlly uses CommonJs so I had configure it to use ES6, that way I have these (babel.config.js and also .babelrc) files for configuring jest and supertest. TO help me with the configuration, I used Chat GPT.
+
+To run follow the bellow steps and commands:
+
+1. Navigate to labSix folder
+2. npm install (to install all the dependencies)
+3. npm test (to view the test results )
+
+NOTE: you don't need to run the server to run the tests, supertest takes care of that.
 
 ## LabSeven
 
