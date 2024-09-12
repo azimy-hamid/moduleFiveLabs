@@ -34,9 +34,7 @@ To run the backend server:
 2. npm start (if you have nodemon installed globally)
 3. node server.js (if you don't have nodemon installed globally)
 
-To run the frontend:
-
-4. open the index.html from the public folder manually or go live using live-server or after running the server you can go onto this endpoint (http://localhost:3000/)
+To run the frontend: open the index.html from the public folder manually or go live using live-server or after running the server you can go onto this endpoint (http://localhost:3000/)
 
 NOTE: For the frontend to have all functionalities, the backend server must be running
 
@@ -74,5 +72,20 @@ To run follow the bellow steps and commands:
 NOTE: you don't need to run the server to run the tests, supertest takes care of that.
 
 ## LabSeven
+
+In this lab,
+
+- I have created 2 libraries/classes (calculator: for handling the calculation that was done directly in the controller file operation -- Log for logging the id and the result of the operation in server console).
+- I also create random numbers for IDs of the calculator; however, in the real world senario I guess we would also have to check if that random number has already been assigned to any previous calculator, so that we don't generate duplicates.
+- As mentioned above, I have also created a Log library -- I have created an instance of that Log Class in the Calculator Class and used the logCall method of the Log Class to log the information in server console
+
+To run follow the bellow steps and commands:
+
+1. Navigate to labSeven folder
+2. npm install (to install all the dependencies)
+3. npm start (if you have nodemon globally installed on your device)
+4. npm run startWithoutNodemon (if you don't have nodemon globally installed on your device)
+5. npm test (to view the test results )
+6. To view the frontend: open the index.html from the public folder manually or go live using live-server or after running the server you can go onto this endpoint (http://localhost:3000/)
 
 ## LabEight
