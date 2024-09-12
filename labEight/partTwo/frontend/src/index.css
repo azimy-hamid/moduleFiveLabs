@@ -1,0 +1,9 @@
+#product-card-id {
+  position: relative;
+}
+
+#product-card-badge-id {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}

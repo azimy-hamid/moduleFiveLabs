@@ -3,6 +3,7 @@
 ## Description
 
 Below I have added a table of content to explain each of the labs separately :)
+**IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
 ## Table of Contents
 
@@ -20,6 +21,7 @@ Below I have added a table of content to explain each of the labs separately :)
 I have created 3 servers that run on port 3001, 3002, and 3003.
 
 To run, run these commands:
+**IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
 1. npm install
 2. node [serverOne.js OR serverTwo.js OR serverThree.js]
@@ -29,6 +31,7 @@ To run, run these commands:
 I have created the interface and also the api to handle the math operations in the backend.
 
 To run the backend server:
+**IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
 1. npm install
 2. npm start (if you have nodemon installed globally)
@@ -49,6 +52,7 @@ All the requirements are met. And I have changed the friends.js file to a friend
 Also, in the second requirement for this lab, it asks to send these header (user-agent, content-type and accept) data in the response. Because a get request doesn't need a content-type header, it doesn't show when you go to this endpoint http://localhost:3000/friends/info. But if you use postman and send a content-type : application/json it'll show this info in response.
 
 To run:
+**IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
 1. npm install
 2. npm start (if you have nodemon installed globally on your device)
@@ -64,6 +68,7 @@ All the requirements for the lab 6 is completed, I have written 4 test cases tha
 Also, Since I was using ES6 and the supertest library noramlly uses CommonJs so I had configure it to use ES6, that way I have these (babel.config.js and also .babelrc) files for configuring jest and supertest. TO help me with the configuration, I used Chat GPT.
 
 To run follow the bellow steps and commands:
+**IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
 1. Navigate to labSix folder
 2. npm install (to install all the dependencies)
@@ -74,6 +79,7 @@ NOTE: you don't need to run the server to run the tests, supertest takes care of
 ## LabSeven
 
 In this lab,
+**IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
 - I have created 2 libraries/classes (calculator: for handling the calculation that was done directly in the controller file operation -- Log for logging the id and the result of the operation in server console).
 - I also create random numbers for IDs of the calculator; however, in the real world senario I guess we would also have to check if that random number has already been assigned to any previous calculator, so that we don't generate duplicates.
@@ -89,3 +95,19 @@ To run follow the bellow steps and commands:
 6. To view the frontend: open the index.html from the public folder manually or go live using live-server or after running the server you can go onto this endpoint (http://localhost:3000/)
 
 ## LabEight
+
+### Lab Eight - Part One
+
+In the first part of this lab, I have added swagger.
+
+To run follow the bellow steps and commands:
+
+1. Navigate to labEight > partOne folder
+2. npm install (to install all the dependencies)
+3. npm start (if you have nodemon globally installed on your device)
+4. npm run startWithoutNodemon (if you don't have nodemon globally installed on your device)
+5. npm test (to view the test results )
+6. To view the frontend: open the index.html from the public folder manually or go live using live-server or after running the server you can go onto this endpoint (http://localhost:3000/)
+7. More importantly, to get to the Swagger UI go to this endpoint (http://localhost:3000/api-docs)
+
+### Lab Eight - Part Two
