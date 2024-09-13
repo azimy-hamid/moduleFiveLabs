@@ -1,20 +1,22 @@
 import express from "express";
 import swaggerUi from "swagger-ui-express";
-import sequelize from "./config/db";
-import Product from "./models/Products";
+import sequelize from "./config/db.js";
+import Product from "./models/Products.js";
+import productRoutes from "./routes/productsRoutes.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const syncDatabase = async () => {
+app.get("/", async (req, res) => {
   try {
-    await sequelize.sync(); // You can use { force: true } during development to reset the tables
-    console.log("Database & tables created!");
+    res.status(200).json({ response: "This is the root endpoint" });
   } catch (error) {
-    console.error("Error creating database & tables:", error);
+    res.status(500).json({ error });
   }
-};
+});
+
+app.use("/products", productRoutes);
 
 export default app;

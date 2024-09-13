@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/db";
+import sequelize from "../config/db.js";
 
 const Product = sequelize.define(
   "Product",
@@ -23,11 +23,11 @@ const Product = sequelize.define(
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: true, // Category can be NULL
+      allowNull: false,
     },
     image_url: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     rating: {
       type: DataTypes.FLOAT,
