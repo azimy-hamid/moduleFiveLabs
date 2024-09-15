@@ -2,12 +2,12 @@ import sequelize from "../config/db.js";
 
 const getAllProducts = async (req, res) => {
   try {
-    let [allProducts, metaData] = await sequelize.query(
-      "SELECT * FROM lab_eight_fake_store.products"
-    );
+    let allProducts = await sequelize.query("SELECT * FROM products LIMIT 1");
+    console.log("asljdbk");
     console.log(allProducts);
-    res.status(200).json({ Products: allProducts });
+    res.json(allProducts);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ "Failed to connect to db": error });
   }
 };
