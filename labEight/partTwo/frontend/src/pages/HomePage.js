@@ -13,7 +13,6 @@ function HomePage() {
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
-
   const [selectedCategory, setSelectCategory] = useState("All");
   const [sortOption, setSortOption] = useState("");
 

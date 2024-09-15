@@ -19,7 +19,7 @@ function ProductCard({ product }) {
   return (
     <div className="card h-100" id="product-card-id">
       <img
-        src={product.image}
+        src={product.image_url}
         className="card-img-top"
         alt={product.title}
         style={{ height: "300px", objectFit: "contain" }}
