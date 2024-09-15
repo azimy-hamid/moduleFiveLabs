@@ -29,7 +29,7 @@ To run, run these commands:
 ## LabTwo
 
 I have created the interface and also the api to handle the math operations in the backend.
-
+Also, after the feedback on module 4 calculator app, I redesigned the calculator.
 To run the backend server:
 **IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
 
@@ -64,8 +64,9 @@ The requirement for this lab is to change lab 4 api to use controller, but this 
 
 ## LabSix
 
-All the requirements for the lab 6 is completed, I have written 4 test cases that test the 4 (add - sub - multiply - div) endpoints. However in the lab instrcutions (the module 5 slides), they have used commonJs, but I have used ES6 cause I wanted to also practice the ES6 sytax as I had only worked with CommonJs previously so it was quite a good experience.
+All the requirements for the lab 6 is completed, I have written 3 test cases. However in the lab instrcutions (the module 5 slides), they have used commonJs, but I have used ES6 cause I wanted to also practice the ES6 sytax as I had only worked with CommonJs previously so it was quite a good experience.
 Also, Since I was using ES6 and the supertest library noramlly uses CommonJs so I had configure it to use ES6, that way I have these (babel.config.js and also .babelrc) files for configuring jest and supertest. TO help me with the configuration, I used Chat GPT.
+Here I used the redesiugned calculator from the Module 4
 
 To run follow the bellow steps and commands:
 **IMPORTANT: TO RUN THE COMMANDS, FIRST NAVIGATE TO ROOT FOLDER FOR THE RESPECTIVE LAB**
@@ -84,6 +85,7 @@ In this lab,
 - I have created 2 libraries/classes (calculator: for handling the calculation that was done directly in the controller file operation -- Log for logging the id and the result of the operation in server console).
 - I also create random numbers for IDs of the calculator; however, in the real world senario I guess we would also have to check if that random number has already been assigned to any previous calculator, so that we don't generate duplicates.
 - As mentioned above, I have also created a Log library -- I have created an instance of that Log Class in the Calculator Class and used the logCall method of the Log Class to log the information in server console
+- ONE IMPORTANT THING: Here I didn't use the redesigned calculator from module 4 cause with the older version of my calculator, I was able to showcase the use of libraries a lot better than showcasing it with the redesigned version of my calculator.
 
 To run follow the bellow steps and commands:
 

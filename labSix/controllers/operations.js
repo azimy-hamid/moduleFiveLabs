@@ -1,43 +1,22 @@
 import express from "express";
+import * as math from "mathjs";
 const router = express.Router();
 
-router.get("/add", (req, res) => {
+router.get("/evaluate", (req, res) => {
   try {
-    const { num1, num2 } = req.query;
-    let result = parseInt(num1) + parseInt(num2);
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json("Server error");
-  }
-});
+    const { expression } = req.query; // Get the expression from the query parameter
 
-router.get("/sub", (req, res) => {
-  try {
-    const { num1, num2 } = req.query;
-    let result = parseInt(num1) - parseInt(num2);
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json("Server error");
-  }
-});
+    if (!expression) {
+      return res.status(400).json({ error: "Expression is required" });
+    }
 
-router.get("/multiply", (req, res) => {
-  try {
-    const { num1, num2 } = req.query;
-    let result = parseInt(num1) * parseInt(num2);
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json("Server error");
-  }
-});
+    const result = math.evaluate(expression);
 
-router.get("/div", (req, res) => {
-  try {
-    const { num1, num2 } = req.query;
-    let result = parseInt(num1) / parseInt(num2);
-    res.status(200).json(result);
+    // Send back the result
+    res.status(200).json({ result });
   } catch (error) {
-    res.status(500).json("Server error");
+    console.error("Error evaluating expression:", error);
+    res.status(500).json({ error: "Invalid mathematical expression" });
   }
 });
 

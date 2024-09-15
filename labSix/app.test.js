@@ -1,48 +1,34 @@
-// import supertest and the express app
 import request from "supertest";
-import app from "./app";
+import express from "express";
+import operationsRouter from "./controllers/operations";
 
-describe("Calculator Routes", () => {
-  // generate some random numbers to test the calculator
-  let number1 = Math.floor(Math.random() * 1_000_000);
-  let number2 = Math.floor(Math.random() * 1_000_000);
-  test("GET /api/add => sum of numbers", () => {
-    return request(app)
-      .get(`/api/add?num1=${number1}&num2=${number2}`)
-      .expect("Content-Type", /json/)
-      .expect(200)
-      .then((response) => {
-        expect(response.body).toEqual(number1 + number2);
-      });
+// Set up an Express app with the route for testing
+const app = express();
+app.use("/api", operationsRouter); // Assume the route is mounted at /api
+
+describe("GET /evaluate", () => {
+  test("should return the correct result for a valid expression", async () => {
+    const response = await request(app)
+      .get("/api/evaluate")
+      .query({ expression: "1+2/3*9" });
+
+    expect(response.statusCode).toBe(200); // Expect status 200
+    expect(response.body.result).toBe(7); // Expect the correct result (1 + 2/3 * 9)
   });
 
-  test("GET /api/sub => subtraction of numbers", () => {
-    return request(app)
-      .get(`/api/sub?num1=${number1}&num2=${number2}`)
-      .expect("Content-Type", /json/)
-      .expect(200)
-      .then((response) => {
-        expect(response.body).toEqual(number1 - number2);
-      });
+  test("should return a 400 error if no expression is provided", async () => {
+    const response = await request(app).get("/api/evaluate"); // No query string here
+
+    expect(response.statusCode).toBe(400); // Expect status 400
+    expect(response.body.error).toBe("Expression is required"); // Expect correct error message
   });
 
-  test("GET /api/multiply multiply => multiplication of numbers", () => {
-    return request(app)
-      .get(`/api/multiply?num1=${number1}&num2=${number2}`)
-      .expect("Content-Type", /json/)
-      .expect(200)
-      .then((response) => {
-        expect(response.body).toEqual(number1 * number2);
-      });
-  });
+  test("should return a 500 error for an invalid mathematical expression", async () => {
+    const response = await request(app)
+      .get("/api/evaluate")
+      .query({ expression: "1 2" }); // Invalid expression - because 1 (space) 2 is not a mathametical expression
 
-  test("GET /api/div => Division of numbers", () => {
-    return request(app)
-      .get(`/api/div?num1=${number1}&num2=${number2}`)
-      .expect("Content-Type", /json/)
-      .expect(200)
-      .then((response) => {
-        expect(response.body).toEqual(number1 / number2);
-      });
+    expect(response.statusCode).toBe(500); // Expect status 500
+    expect(response.body.error).toBe("Invalid mathematical expression"); // Expect correct error message
   });
 });

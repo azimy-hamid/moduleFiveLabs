@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIMPLE CALCULATOR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Module 5 Lab 6 CALCULATOR</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,34 +19,165 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <section
-      class="container d-flex align-items-center justify-content-center vh-100"
-    >
-      <div class="inputs-btns-container row gy-2">
-        <div class="d-flex inputs gap-3">
-          <input type="number" id="num1" class="form-control" />
-          <input type="number" id="num2" class="form-control" />
+    <div class="calculator col-md-4">
+      <input type="text" id="display" class="form-control w-100" disabled />
+
+      <div class="row g-2">
+        <div class="col-3">
+          <button
+            class="btn btn-danger w-100 btn-clear"
+            onclick="clearDisplay()"
+          >
+            C
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('(')"
+          >
+            (
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay(')')"
+          >
+            )
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('/')"
+          >
+            ÷
+          </button>
         </div>
 
-        <div class="d-flex gap-3" id="operations-container">
-          <select name="operations" id="operations" class="form-select">
-            <option value="+" id="add-opt">Add</option>
-            <option value="-" id="sub-opt">Subtract</option>
-            <option value="*" id="mul-opt">Multiply</option>
-            <option value="/" id="div-opt">Divide</option>
-          </select>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('7')"
+          >
+            7
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('8')"
+          >
+            8
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('9')"
+          >
+            9
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('*')"
+          >
+            ×
+          </button>
         </div>
 
-        <div class="d-flex gap-3 operations">
-          <button class="btn btn-warning" id="result-btn">Show Result</button>
-          <button class="btn btn-danger" id="reset-btn">Reset</button>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('4')"
+          >
+            4
+          </button>
         </div>
-        <div>
-          <h3 class="text-warning">Result</h3>
-          <input class="form-control" id="result" disabled />
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('5')"
+          >
+            5
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('6')"
+          >
+            6
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('-')"
+          >
+            −
+          </button>
+        </div>
+
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('1')"
+          >
+            1
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('2')"
+          >
+            2
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('3')"
+          >
+            3
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('+')"
+          >
+            +
+          </button>
+        </div>
+
+        <div class="col-6">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('0')"
+          >
+            0
+          </button>
+        </div>
+        <div class="col-3">
+          <button
+            class="btn btn-secondary w-100"
+            onclick="appendToDisplay('.')"
+          >
+            .
+          </button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-success w-100 btn-equal" onclick="calculate()">
+            =
+          </button>
         </div>
       </div>
-    </section>
+    </div>
 
     <script src="main.js"></script>
     <script
