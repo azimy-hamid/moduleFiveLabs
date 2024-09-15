@@ -13,9 +13,4 @@ const sequelize = new Sequelize(
   }
 );
 
-// const sequelize = new Sequelize("lab_eight_fake_store", "root", "4July2019", {
-//   host: "localhost",
-//   dialect: "mysql",
-// });
-
 export default sequelize;
