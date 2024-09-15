@@ -22,96 +22,57 @@
   "produces": ["application/json"],
 
   "paths": {
-    "/api/add": {
+    "/api/evaluate": {
       "get": {
-        "tags": ["Addition Service"],
-        "summary": "Add 2 numbers",
+        "tags": ["Calculator"],
+        "summary": "Evaluate a mathematical expression",
+        "description": "This service evaluates a mathematical expression passed as a query parameter.",
         "parameters": [
           {
-            "name": "num1",
+            "name": "expression",
             "in": "query",
-            "description": "The First Number"
-          },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "The Second number"
+            "description": "The mathematical expression to evaluate",
+            "required": true,
+            "type": "string",
+            "example": "2+2"
           }
         ],
         "responses": {
           "200": {
-            "description": "This service allows you to add two numbers together"
-          }
-        }
-      }
-    },
-
-    "/api/sub": {
-      "get": {
-        "tags": ["Subtraction Service"],
-        "summary": "Subtract 2 numbers",
-        "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "The First Number"
+            "description": "Successful evaluation of the mathematical expression",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "number",
+                  "example": 4
+                }
+              }
+            }
           },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "The Second number"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "This service allows you to subtract two numbers"
-          }
-        }
-      }
-    },
-
-    "/api/multiply": {
-      "get": {
-        "tags": ["Multiplication Service"],
-        "summary": "Multiply 2 numbers",
-        "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "The First Number"
+          "400": {
+            "description": "Bad Request - Expression is missing",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Expression is required"
+                }
+              }
+            }
           },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "The Second number"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "This service allows you to multiply two numbers together"
-          }
-        }
-      }
-    },
-    "/api/div": {
-      "get": {
-        "tags": ["Division Service"],
-        "summary": "Divide 2 numbers",
-        "parameters": [
-          {
-            "name": "num1",
-            "in": "query",
-            "description": "The First Number"
-          },
-          {
-            "name": "num2",
-            "in": "query",
-            "description": "The Second number"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "This service allows you to divide two numbers together"
+          "500": {
+            "description": "Internal Server Error - Invalid mathematical expression",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Invalid mathematical expression"
+                }
+              }
+            }
           }
         }
       }

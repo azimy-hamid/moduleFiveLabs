@@ -25,69 +25,31 @@ let result = document.getElementById("result");
 let answer;
 let amount;
 
-const resultBtn = document.getElementById("result-btn");
-const resetBtn = document.getElementById("reset-btn");
+let displayValue = "";
 
-resultBtn.addEventListener("click", async () => {
-  let numberInput1 = document.getElementById("num1").value;
-  let numberInput2 = document.getElementById("num2").value;
+function appendToDisplay(value) {
+  displayValue += value;
+  document.getElementById("display").value = displayValue;
+}
 
-  let operation = document.getElementById("operations").value;
-  switch (operation) {
-    case "+":
-      answer = await fetch(
-        `http://localhost:3000/api/add?num1=${numberInput1}&num2=${numberInput2}`
-      );
-      amount = await answer.json();
+function clearDisplay() {
+  displayValue = "";
+  document.getElementById("display").value = "";
+}
 
-      if (!isNaN(amount)) {
-        result.value = amount;
-      }
-      break;
-
-    case "-":
-      answer = await fetch(
-        `http://localhost:3000/api/sub?num1=${numberInput1}&num2=${numberInput2}`
-      );
-      amount = await answer.json();
-
-      if (!isNaN(amount)) {
-        result.value = amount;
-      }
-      break;
-
-    case "*":
-      answer = await fetch(
-        `http://localhost:3000/api/multiply?num1=${numberInput1}&num2=${numberInput2}`
-      );
-      amount = await answer.json();
-
-      if (!isNaN(amount)) {
-        result.value = amount;
-      }
-      break;
-
-    case "/":
-      answer = await fetch(
-        `http://localhost:3000/api/div?num1=${numberInput1}&num2=${numberInput2}`
-      );
-
-      amount = await answer.json();
-
-      if (!isNaN(amount)) {
-        result.value = amount;
-      }
-      break;
-
-    default:
-      result.value = "Choose a valid operation!";
-      break;
+async function calculate() {
+  try {
+    const encodedDistplayValue = encodeURIComponent(displayValue);
+    const response = await fetch(
+      `http://localhost:3000/api/evaluate?expression=${encodedDistplayValue}`
+    );
+    const resultData = await response.json();
+    const result = resultData.result;
+    console.log(resultData);
+    displayValue = result.toString();
+    document.getElementById("display").value = displayValue;
+  } catch (error) {
+    document.getElementById("display").value = "Error";
+    displayValue = "";
   }
-});
-
-resetBtn.addEventListener("click", () => {
-  let num1 = (document.getElementById("num1").value = "");
-  let num2 = (document.getElementById("num2").value = "");
-
-  result.value = "";
-});
+}
